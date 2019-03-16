@@ -1,0 +1,430 @@
+<!DOCTYPE html><html><head><title>数组方法</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#数组方法">数组方法</a><ul>
+<li><a href="#基本结构">基本结构</a></li>
+<li><a href="#类数组">类数组</a></li>
+<li><a href="#遍历数组的每一项">遍历数组的每一项</a></li>
+</ul>
+</li>
+<li><a href="#改变原来数组的常用方法">改变原来数组的常用方法</a><ul>
+<li><ul>
+<li><a href="#增加">增加</a><ul>
+<li><a href="#1push-向末尾追加">1、push : 向末尾追加</a></li>
+<li><a href="#2unshift-向开头追加">2、unshift ：向开头追加</a></li>
+<li><a href="#3把数组当做一个普通对象使用键值对的操作">3、把数组当做一个普通对象，使用键值对的操作</a></li>
+</ul>
+</li>
+<li><a href="#删除">删除</a><ul>
+<li><a href="#1pop删除数组最后一项">1、pop:删除数组最后一项</a></li>
+<li><a href="#2shift删除数组第一项">2、shift：删除数组第一项</a></li>
+<li><a href="#3把数组当做一个普通对象使用键值对的操作删除">3、把数组当做一个普通对象，使用键值对的操作删除</a></li>
+</ul>
+</li>
+<li><a href="#splice增删改都可以">splice增删改都可以</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#不改变原有数组的方法">不改变原有数组的方法</a><ul>
+<li><a href="#数组克隆slice">数组克隆：slice</a></li>
+<li><a href="#将两个数组进行拼接concat">将两个数组进行拼接：concat</a></li>
+<li><a href="#验证数组中是否包含某一项indexoflastindexof">验证数组中是否包含某一项：indexOf/lastIndexOf</a></li>
+<li><a href="#验证数组中是否包含某一项includes">验证数组中是否包含某一项：includes</a></li>
+<li><a href="#数组中的排序和排列">数组中的排序和排列</a><ul>
+<li><a href="#1reverse把数组中的每一项倒过来排列">1、reverse：把数组中的每一项倒过来排列</a></li>
+<li><a href="#2sort实现数组排序">2、sort：实现数组排序</a></li>
+</ul>
+</li>
+<li><a href="#将数组转换为字符串">将数组转换为字符串</a><ul>
+<li><a href="#tostring">toString</a></li>
+<li><a href="#join">join</a></li>
+</ul>
+</li>
+<li><a href="#eval不常用">eval（不常用）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="数组方法">数组方法</h2>
+
+<p></p>
+
+
+
+<h3 id="基本结构">基本结构</h3>
+
+<blockquote>
+  <p>对象数据类型</p>
+  
+  <p>数组也有属性名，只不过属性名是索引 <br>
+   length代表数组的长度</p>
+</blockquote>
+
+
+
+<p><img longdesc="./1543218400120.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/82bb6054-0159-45c4-9920-950524019121?size=29101&amp;format=image.png" class="remote"></p>
+
+
+
+<h3 id="类数组">类数组</h3>
+
+<blockquote>
+  <p>1、通过getElementsByTagName获取的元素集合是类数组 <br>
+  2、函数中的实参集合arguments也是类数组 <br>
+  ······</p>
+</blockquote>
+
+
+
+<h3 id="遍历数组的每一项">遍历数组的每一项</h3>
+
+
+
+<p><img longdesc="./1543219393881.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/7cae999b-4ecd-42ce-8377-83d562094ed1?size=207271&amp;format=image.png" class="remote"></p>
+
+
+
+<h2 id="改变原来数组的常用方法">改变原来数组的常用方法</h2>
+
+<p>用<code>console.dir(Array.prototype)</code>查看所有方法</p>
+
+<blockquote>
+  <p>在这几个方面去记忆方法 <br>
+  1.方法的意义和作用 <br>
+  2.方法的形参 <br>
+  3.方法的返回值 <br>
+  4.通过此方法原来的数组是否发生了变化</p>
+</blockquote>
+
+
+
+<h4 id="增加">增加</h4>
+
+
+
+<h5 id="1push-向末尾追加">1、push : 向末尾追加</h5>
+
+<p>参数：任何数据类型，一个到多个，多个用逗号隔开 <br>
+返回值：新增后数组的长度 <br>
+原有数组改变了</p>
+
+
+
+<p><img longdesc="./1543219686654.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/09a08221-22f5-44f2-914a-d1b157021654?size=95503&amp;format=image.png" class="remote"></p>
+
+
+
+<h5 id="2unshift-向开头追加">2、unshift ：向开头追加</h5>
+
+<p>参数：任何数据类型，一个到多个，多个用逗号隔开 <br>
+返回值：新增后数组的长度 <br>
+原有数组改变了</p>
+
+
+
+<p><img longdesc="./1543219879178.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/242995bc-f8b3-4db0-9e21-edc95f359660?size=32701&amp;format=image.png" class="remote"></p>
+
+
+
+<h5 id="3把数组当做一个普通对象使用键值对的操作">3、把数组当做一个普通对象，使用键值对的操作</h5>
+
+<p>ary[ary.length]=xxx    向末尾追加</p>
+
+
+
+<h4 id="删除">删除</h4>
+
+
+
+<h5 id="1pop删除数组最后一项">1、pop:删除数组最后一项</h5>
+
+<p>参数：无 <br>
+返回值：被删除的那一项内容 <br>
+原有数值改变了</p>
+
+
+
+<p><img longdesc="./1543220116006.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/0ac0a4b8-eefa-4d8d-a6b8-dc0930059fe2?size=37532&amp;format=image.png" class="remote"></p>
+
+
+
+<h5 id="2shift删除数组第一项">2、shift：删除数组第一项</h5>
+
+<p>参数：无 <br>
+返回值：被删除的那一项内容 <br>
+原有数值改变了</p>
+
+<p>删除第一项，后面的每一项索引改变</p>
+
+
+
+<p><img longdesc="./1543220261656.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/8e2812d8-d492-499d-b2c6-5a011c4b2f02?size=46206&amp;format=image.png" class="remote"></p>
+
+
+
+<h5 id="3把数组当做一个普通对象使用键值对的操作删除">3、把数组当做一个普通对象，使用键值对的操作删除</h5>
+
+<p>delete删除：<code>delete ary[索引]</code>删除指定项，其他索引不变，length不变</p>
+
+
+
+<p><img longdesc="./1543220372340.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/5002e017-7a92-4ea6-b37f-40809d1231aa?size=67974&amp;format=image.png" class="remote"></p>
+
+
+
+<p><img longdesc="./1543220483389.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/556a74dd-b20f-4a36-a374-65f323fc3592?size=54538&amp;format=image.png" class="remote"> <br>
+ary.length - - ;删除数组最后一项</p>
+
+
+
+<p><img longdesc="./1543220502636.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/56c544b6-5ef7-47a5-98bf-5994571ba9b3?size=36243&amp;format=image.png" class="remote"></p>
+
+
+
+<h4 id="splice增删改都可以"><code>splice</code>增删改都可以</h4>
+
+<p>1、删除 <br>
+splice（n,m）：从索引n开始删除m个 <br>
+返回值：被删除的内容（以一个新数组保存） <br>
+原来数组改变</p>
+
+<ul><li>splice（0） 清空数组</li>
+<li>splice（） 一项都不删除</li>
+<li>splice（ary.length-1）删除最后一项</li>
+</ul>
+
+<p>2、修改 <br>
+splice（n,m,x）：在原有删除的基础上，用x代替删除的内容</p>
+
+<p>3、增加 <br>
+splice（n,0,x）：在修改的基础上，我们一项都不删除，把x插入到索引n的前面</p>
+
+<ul><li>ary.splice(0,0,x)  在开头追加</li>
+<li>ary.splice(ary.length,0,x)   在末尾追加</li>
+</ul>
+
+
+
+<p><img longdesc="./1543221218595.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/8316a9db-4245-4f4c-ad39-2edb7437bfd3?size=31787&amp;format=image.png" class="remote"></p>
+
+
+
+<h2 id="不改变原有数组的方法">不改变原有数组的方法</h2>
+
+
+
+<h3 id="数组克隆slice">数组克隆：slice</h3>
+
+<p>参数：slice（n,m） 从索引n开始复制索引m处（不包括m） <br>
+返回值：把找到的部分以一个新数组返回 <br>
+原来数组不变</p>
+
+<ul><li>slice（n）从索引n开始复制末尾</li>
+<li>slice（）或slice（0） 数组克隆，和原来一样</li>
+</ul>
+
+
+
+<p><img longdesc="./1543223438963.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/3908e782-5883-4fdc-98f2-b26e9d8ee06d?size=130429&amp;format=image.png" class="remote"></p>
+
+<ul><li>支持负数       按照<code>总长度+负数索引</code>来计算</li>
+</ul>
+
+
+
+<p><img longdesc="./1543223566805.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/5010fcaa-47d0-43b1-baca-749f607dff6a?size=35326&amp;format=image.png" class="remote"></p>
+
+
+
+<h3 id="将两个数组进行拼接concat">将两个数组进行拼接：concat</h3>
+
+<p>参数：要拼接的内容（放在数组后面），可以任何数据类型 <br>
+返回值：拼接后的新数组 <br>
+原有数组不变</p>
+
+<ul><li>concat( ) 什么都没有拼接，相当于克隆</li>
+</ul>
+
+
+
+<p><img longdesc="./1543223806169.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/a81592bf-8520-4524-8af0-abad27662740?size=110956&amp;format=image.png" class="remote"></p>
+
+<ul><li>如果拼接的是数组，就会将里面的数组展开拼接</li>
+<li>再加一层括号就会按数组拼接</li>
+</ul>
+
+
+
+<p><img longdesc="./1543224553276.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/01b92bba-fa96-4f22-8cf4-44aa7d517c35?size=23825&amp;format=image.png" class="remote"></p>
+
+
+
+<h3 id="验证数组中是否包含某一项indexoflastindexof">验证数组中是否包含某一项：indexOf/lastIndexOf</h3>
+
+<p>数组中的这两个方法在IE6、7、8中不兼容 <br>
+字符串中的这两个方法兼容所有的</p>
+
+<blockquote>
+  <p>indexOf（lastIndexOf）：获取当前项在数组中第一次出现（最后一次）出现的索引 <br>
+  如果没有这一项，返回值是-1，以此验证数组中是否包含这一项</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">if</span>(ary.indexOf(<span class="hljs-number">12</span>)&gt;<span class="hljs-number">-1</span>){
+</div><div class="hljs-line">    <span class="hljs-comment">//数组中包含12</span>
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Arry.prototype.myIndexOf=<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myIndexOf</span>(<span class="hljs-params">value</span>)</span>{
+</div><div class="hljs-line">          <span class="hljs-keyword">var</span> reselt=<span class="hljs-number">-1</span>;
+</div><div class="hljs-line">          <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-keyword">this</span>.length;i++){
+</div><div class="hljs-line">             <span class="hljs-keyword">if</span>(value===<span class="hljs-keyword">this</span>[i]){
+</div><div class="hljs-line">             result=i;
+</div><div class="hljs-line">             <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line">             }
+</div><div class="hljs-line">          }
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> result;
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h3 id="验证数组中是否包含某一项includes">验证数组中是否包含某一项：includes</h3>
+
+<p>一个参数：要查找的对象 <br>
+返回值：有返回true；没有返回false</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs lsl"><div class="hljs-line">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].includes(<span class="hljs-number">2</span>)     <span class="hljs-comment">// true</span>
+</div><div class="hljs-line">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].includes(<span class="hljs-number">4</span>)     <span class="hljs-comment">// false</span>
+</div><div class="hljs-line">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, NaN].includes(NaN) <span class="hljs-comment">// true</span>
+</div></code></pre>
+
+<p>该方法的第二个参数表示搜索的起始位置，默认为0。如果第二个参数为负数，则表示倒数的位置，如果这时它大于数组长度（比如第二个参数为-4，但数组长度为3），则会重置为从0开始。</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs lsl"><div class="hljs-line">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].includes(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>);  <span class="hljs-comment">// false</span>
+</div><div class="hljs-line">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].includes(<span class="hljs-number">3</span>, <span class="hljs-number">-1</span>); <span class="hljs-comment">// true</span>
+</div></code></pre>
+
+
+
+<h3 id="数组中的排序和排列">数组中的排序和排列</h3>
+
+
+
+<h4 id="1reverse把数组中的每一项倒过来排列">1、reverse：把数组中的每一项倒过来排列</h4>
+
+<p>参数：无 <br>
+返回值：排列后的顺序 <br>
+原有数组改变</p>
+
+
+
+<p><img longdesc="./1543224914082.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/d92df670-c89e-4115-8c58-5cd3e3780e31?size=55935&amp;format=image.png" class="remote"></p>
+
+
+
+<h4 id="2sort实现数组排序">2、sort：实现数组排序</h4>
+
+<p>参数：无或者回调函数 <br>
+返回值：排序后的数组 （与原数组是一个地址） <br>
+原来数组改变</p>
+
+<ul><li>在无参数的情况下：只根据第一位排序</li>
+</ul>
+
+
+
+<p><img longdesc="./1543225069117.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/63ee6064-04ac-4f5e-9fe4-7b9316e665bf?size=39018&amp;format=image.png" class="remote"></p>
+
+<p><strong>想排列两位的方法</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">ary.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a,b</span>)</span>{
+</div><div class="hljs-line">       <span class="hljs-keyword">return</span> a-b;<span class="hljs-comment">//升序</span>
+</div><div class="hljs-line">       <span class="hljs-keyword">return</span> b-a;<span class="hljs-comment">//降序</span>
+</div><div class="hljs-line">              })
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">//举例</span>
+</div><div class="hljs-line"> <span class="hljs-keyword">var</span> ary1 = [{<span class="hljs-attr">age</span>:<span class="hljs-number">14</span>},{<span class="hljs-attr">age</span>:<span class="hljs-number">21</span>},{<span class="hljs-attr">age</span>:<span class="hljs-number">1</span>},{<span class="hljs-attr">age</span>:<span class="hljs-number">13</span>},{<span class="hljs-attr">age</span>:<span class="hljs-number">11</span>}]
+</div><div class="hljs-line">ary1.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a,b</span>)</span>{
+</div><div class="hljs-line">       <span class="hljs-keyword">return</span> a.age-b.age;<span class="hljs-comment">//按照age的属性值升序排列</span>
+</div><div class="hljs-line">              })
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+
+
+<p><img longdesc="./1543225198663.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/36a367ec-26d9-4c13-9f6e-64d0f6807fa2?size=51691&amp;format=image.png" class="remote"></p>
+
+
+
+<h3 id="将数组转换为字符串">将数组转换为字符串</h3>
+
+
+
+<h4 id="tostring">toString</h4>
+
+<p>参数：无 <br>
+返回值：以逗号隔开的方式转为字符串</p>
+
+
+
+<p><img longdesc="./1543225504508.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/8386830c-eb66-4442-bbfc-443a2415e52b?size=4193&amp;format=image.png" class="remote"></p>
+
+
+
+<h4 id="join">join</h4>
+
+<blockquote>
+  <p>参数：” ”  （空字符串） <br>
+  返回值：没有逗号的字符串</p>
+</blockquote>
+
+
+
+<p><img longdesc="./1543225989934.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/515af0f6-41e7-4a32-9403-2c262bb41ae1?size=3927&amp;format=image.png" class="remote"></p>
+
+<blockquote>
+  <p>参数：无 <br>
+  返回值：有逗号的字符串</p>
+</blockquote>
+
+
+
+<p><img longdesc="./1543225857922.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/df72bce1-9190-4179-893a-e9505b1c7fd4?size=3895&amp;format=image.png" class="remote"></p>
+
+<blockquote>
+  <p>参数：”+” <br>
+  返回值：以+ 分隔的字符串</p>
+</blockquote>
+
+
+
+<p><img longdesc="./1543226104732.png" alt="Alt text" title="" type="image/png" src="https://maxiang.io/client/evernote/res/https://app.yinxiang.com/shard/s64/res/30929908-41de-4893-a7c3-fab8974f7cc1?size=4027&amp;format=image.png" class="remote"> <br>
+想以什么作为分隔符，就把分隔符传入空字符串中</p>
+
+
+
+<h3 id="eval不常用">eval（不常用）</h3>
+
+<p>参数：字符串类型，把参数当做js代码来运行</p>
+
+
+
+<p><img longdesc="./1543226518376.png" alt="Alt text" title="" type="image/png" src="data:image/png;base64,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" class=""></p></div></body></html>

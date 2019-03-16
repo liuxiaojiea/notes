@@ -1,0 +1,172 @@
+<!DOCTYPE html><html><head><title>jQuery</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#jquery">jQuery</a><ul>
+<li><a href="#用法">用法</a><ul>
+<li><a href="#jq对象与原生对象的相互转化">JQ对象与原生对象的相互转化</a></li>
+<li><a href="#jquery常用函数汇总">jQuery常用函数汇总</a><ul>
+<li><a href="#get">get()</a></li>
+<li><a href="#eq">eq()</a></li>
+<li><a href="#extend">extend()</a></li>
+<li><a href="#hasclass">hasClass()</a></li>
+<li><a href="#addclass">addClass()</a></li>
+<li><a href="#parent">parent()</a></li>
+<li><a href="#siblings">siblings()</a></li>
+<li><a href="#children">children()</a></li>
+<li><a href="#find">find()</a></li>
+<li><a href="#removeclass">removeClass()</a></li>
+<li><a href="#show">show()</a></li>
+<li><a href="#hide">hide()</a></li>
+<li><a href="#documentreadyfunction">$(document).ready(function(){})</a></li>
+</ul>
+</li>
+<li><a href="#html">html()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="jquery">jQuery</h2>
+
+<p></p>
+
+<ul><li><p>类库 ，JQ zepto animate.css</p></li>
+<li><p>插件 ，单独的实现某个功能</p></li>
+<li><p>框架 ，具有自己的独立的</p></li>
+<li><p>UI框架 ，iview element-ui ant-design</p></li>
+</ul>
+
+
+
+<h3 id="用法">用法</h3>
+
+
+
+<h4 id="jq对象与原生对象的相互转化">JQ对象与原生对象的相互转化</h4>
+
+<p>1.JQ —&gt;原生  索引</p>
+
+<ul><li><p><code>$('.box')[0]</code></p></li>
+<li><p><code>$('.box').get(0)</code>返回原生对象</p></li>
+</ul>
+
+<p>2.原生 —&gt;JQ $(box1)</p>
+
+<ul><li><p><code>var box1 = document.getElementsByClassName('box')[0];  $(box1);</code></p></li>
+</ul>
+
+<blockquote>
+  <p><strong>需求：给第二个box加box3类名</strong></p>
+  
+  <ul><li><p><code>$($('.box')[0]).addClass('box3')</code></p></li>
+  <li><p><code>$('.box:nth-child(3)').addClass('box3')</code></p></li>
+  <li><p><code>$('.box').eq(2).addClass('box4')</code></p></li>
+  </ul>
+  
+  <p><strong>需求：给jQuery上加属性方法</strong> <br>
+  $.extend({ a:12 })</p>
+  
+  <p><strong>需求：给jQuery的原型上加属性方法</strong> <br>
+   $.fn.extend({ a:13 })</p>
+</blockquote>
+
+
+
+<h4 id="jquery常用函数汇总">jQuery常用函数汇总</h4>
+
+
+
+<h5 id="get">get()</h5>
+
+<p>参数为索引，返回值是原生对象</p>
+
+
+
+<h5 id="eq">eq()</h5>
+
+<p>参数为索引，返回值为jQuery对象</p>
+
+
+
+<h5 id="extend">extend()</h5>
+
+<p><code>.extend({ })</code>把参数扩展到this中</p>
+
+
+
+<h5 id="hasclass">hasClass()</h5>
+
+<p>检测某个元素是否有某个类名，返回值为true或false</p>
+
+
+
+<h5 id="addclass">addClass()</h5>
+
+<p>给某个元素添加类名，返回值为jQuery对象</p>
+
+
+
+<h5 id="parent">parent()</h5>
+
+<p>找到该元素的父级元素</p>
+
+
+
+<h5 id="siblings">siblings()</h5>
+
+<p>找到该元素的兄弟元素</p>
+
+
+
+<h5 id="children">children()</h5>
+
+<p>找到该元素的子元素</p>
+
+
+
+<h5 id="find">find()</h5>
+
+<p>通过参数类名找该元素下面的元素</p>
+
+
+
+<h5 id="removeclass">removeClass()</h5>
+
+<p>移除类名</p>
+
+
+
+<h5 id="show">show()</h5>
+
+<p>让该元素显示</p>
+
+
+
+<h5 id="hide">hide()</h5>
+
+<p>让该元素隐藏</p>
+
+
+
+<h5 id="documentreadyfunction">$(document).ready(function(){})</h5>
+
+<ul><li><p>页面结构加载完毕触发</p></li>
+</ul>
+
+<p>与window.onload()的区别：window.onload()是页面资源全部加载完毕后触发</p>
+
+
+
+<h4 id="html">html()</h4></div></body></html>

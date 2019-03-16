@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>第一周第三天</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#第一周第三天">第一周第三天</a><ul>
+<li><a href="#1html的梳理">1.html的梳理</a></li>
+<li><a href="#2css的梳理">2.CSS的梳理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="第一周第三天">第一周第三天</h2>
+
+
+
+<h3 id="1html的梳理">1.html的梳理</h3>
+
+<blockquote>
+  <p><code>标签 + tab 会自动生成一组完成的标签名</code></p>
+  
+  <p>完整的标签  <br>
+  由开始标签和结束标签组成，而且结束标签要比开始标签多一个反斜杠</p>
+  
+  <p>html 根元素标签 <code>&lt;html&gt;&lt;/html&gt;</code> <br>
+  head 网页头部标签 <code>&lt;head&gt;&lt;/head&gt;</code> <br>
+  body 网页的主体标签 <code>&lt;body&gt;&lt;/body&gt;</code> <br>
+  a 超链接标签<code>&lt;a&gt;&lt;/a&gt;</code> <br>
+  h1-h6 标题系列标签 <code>&lt;h1&gt;&lt;/h1&gt;</code> <br>
+  p 文字段落标签 <code>&lt;p&gt;&lt;/p&gt;</code> <br>
+  em 、i 斜体标签<code>&lt;em&gt;&lt;/em&gt; &lt;i&gt;&lt;/i&gt;</code> <br>
+  strong、b 加粗标签 <code>&lt;strong&gt;&lt;/strong&gt; &lt;b&gt;&lt;/b&gt;</code> <br>
+  small、big 文字变大变小标签 <code>&lt;small&gt;&lt;/small&gt; &lt;big&gt;&lt;/big&gt;</code> <br>
+  sub、sup 下标和上标 <code>&lt;sub&gt;&lt;/sub&gt; &lt;sup&gt;&lt;/sup &gt;</code> <br>
+  del 删除标签 <code>&lt;del&gt;&lt;/del&gt;</code> <br>
+  div、span 区块标签<code>&lt;div&gt;&lt;/div&gt; &lt;span&gt;&lt;/span &gt;</code> <br>
+  iframe 嵌套网页的标签<code>&lt;iframe&gt;&lt;/iframe&gt;</code> <br>
+  ul li、ol li、 dl dt dd 三大列表</p>
+</blockquote>
+
+<p><strong>单标签/自闭合标签 </strong> <br>
+只有开始标签，没有结束标签，在开始标签的地方自动闭合</p>
+
+<p>meta 元标签: 编码，关键词，描述，视口….. <code>&lt;meta /&gt;</code> <br>
+img 插入图片<code>&lt;img/&gt;</code> <br>
+br 折行标签 <code>&lt;br/&gt;</code> <br>
+hr 分割线标签<code>&lt;hr/&gt;</code></p>
+
+
+
+<h3 id="2css的梳理">2.CSS的梳理</h3>
+
+<blockquote>
+  <p><strong>CSS的语法</strong> <br>
+  选择器{属性名：属性值；属性名：属性值；}</p>
+  
+  <p><strong>CSS的引入方式</strong> <br>
+  内嵌式<code>&lt;style type="text/css"&gt; css代码块&lt;/style&gt;</code></p>
+  
+  <p><strong>CSS的选择器</strong></p>
+  
+  <ul><li><p>标签选择器：直接通过标签名获取元素</p></li>
+  <li><p>类选择器/class选择器：通过class类名去获取元素</p></li>
+  <li><p>通配符选择器*：代表页面中所有的标签，一般用来清除浏览器 <br>
+  默认自带的间距<code>*{margin：0；padding：0}</code></p></li>
+  <li><p>ID选择器：通过id类名去获取元素，相同的名字只能出现一次<code>#box{}</code></p></li>
+  <li><p>后代选择器：中间用空格隔开<code>ul li a img</code></p></li>
+  </ul>
+  
+  <p><strong>CSS的属性梳理</strong> <br>
+  margin：0  外间距 <br>
+  padding：0  内填充 <br>
+  background-color  背景颜色  白色（white #fff） 黑色（blank #000） <br>
+  color 字体颜色 <br>
+  font-size 字体大小 <br>
+  font-weight  文字粗细  bold 加粗   normal变细 <br>
+  float:left/right  靠左/右显示 <br>
+  width 宽度 <br>
+  height 高度 <br>
+  border :10px soild red 边框线（上下左右）：宽度 类型（solid实线  dashed虚线）颜色 <br>
+  line-height 行高（高度与height一致上下居中） <br>
+  text-align:center  文字左右居中</p>
+  
+  <p><strong>权重</strong>：权重大的会覆盖权重小的元素 <br>
+  标签选择器: 1 <br>
+  class选择器: 10 <br>
+  id选择器: 100 <br>
+  通配符选择器: 0-1 <br>
+  后代选择器: 每个单独的元素选择器的权重之和</p>
+  
+  <p><strong>居中效果的实现</strong> <br>
+  文字水平居中 text-align:center <br>
+  文字垂直居中 height = line-height <br>
+  色块div水平 width、 margin: 上下 auto</p>
+</blockquote></div></body></html>

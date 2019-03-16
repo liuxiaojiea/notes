@@ -1,0 +1,209 @@
+<!DOCTYPE html><html><head><title>JS基础、导入方式、导出方式及变量常量</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#js基础导入方式导出方式及变量常量">JS基础、导入方式、导出方式及变量常量</a><ul>
+<li><a href="#语言类型">语言类型</a></li>
+<li><a href="#浏览器内核">浏览器内核</a></li>
+<li><a href="#javascript的组成部分">JavaScript的组成部分</a></li>
+<li><a href="#js的导入方式">js的导入方式</a></li>
+<li><a href="#css导入式和内嵌式的区别面试题">css导入式和内嵌式的区别（面试题）</a></li>
+<li><a href="#学会使用控制台">学会使用控制台</a></li>
+<li><a href="#js的输出方式">js的输出方式</a></li>
+<li><a href="#dom元素的获取方式">DOM元素的获取方式</a></li>
+<li><a href="#js中的变量与常量">js中的变量与常量</a></li>
+<li><a href="#js中的命名规范">js中的命名规范</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="js基础导入方式导出方式及变量常量">JS基础、导入方式、导出方式及变量常量</h2>
+
+<p></p>
+
+
+
+<h3 id="语言类型">语言类型</h3>
+
+<p>HTML 标记语言 <br>
+css （层叠样式表）标记语言 <br>
+JS 弱类型的脚本语言 负责用户交互（点击 拖拽） <br>
+ts TypeScript —&gt;需要编译成JS</p>
+
+
+
+<h3 id="浏览器内核">浏览器内核</h3>
+
+<blockquote>
+  <p>我们把浏览器中识别代码绘制页面的东西称为浏览器的内核或者渲染引擎。 <br>
+  谷歌 chorme：webkit(v8引擎)国内大部分，安卓和IOS等等 <br>
+  火狐 firfow：Gecke <br>
+  欧朋 Opera：presto 14代改为webkit   IE：tirdent</p>
+  
+  <p>浏览器兼容： <br>
+  1.W3C发布的规范都是开发者们不断尝试总结下来的产物 <br>
+  2.每个浏览器为了彰显自己的不一样，不按照标准来，但是把标准中规定的效果用另外一种 方式实现了。（写同一个效果写两套代码）</p>
+</blockquote>
+
+
+
+<h3 id="javascript的组成部分">JavaScript的组成部分</h3>
+
+<blockquote>
+  <p>ECMAScript(ES):规定了js的一些基础核心的知识（变量、数据类型、语法规范、操作语句 等）3/5==6/7 <br>
+  DOM：document object model 文档对象模型，里面提供了一些属性和方法，可以让我们 操作页面中的元素</p>
+  
+  <ul><li>操作DOM时，想操作谁，先获取谁</li>
+  </ul>
+  
+  <p>BOM:browser object model 浏览器对象模型，里面提供了一些属性和方法，可以让我们操 作浏览器</p>
+</blockquote>
+
+
+
+<h3 id="js的导入方式">js的导入方式</h3>
+
+<p>1.行内式 <br>
+2.内嵌式 <br>
+3.外链式</p>
+
+<blockquote>
+  <p>内嵌导入和外链导入不能合并在一起，如果当前是外链导入的，那么在script脚本块中编写 的所有代码都不会被执行 <br>
+  真实项目中，一般把css放在body的上面，把js放在body的末尾   如果把js放在HTML标签前面了，如何等到结构加载完成再加载js？ <br>
+  JS：window.onload=funtion(){}页面 JQ:$(document).ready(funtion(){})页面中的结构加载完成就会操作</p>
+</blockquote>
+
+
+
+<h3 id="css导入式和内嵌式的区别面试题">css导入式和内嵌式的区别（面试题）</h3>
+
+<p>1.写静态页面 <br>
+2.用js写用户交互效果 <br>
+常用操作：操作HTML标签（DOM元素）</p>
+
+
+
+<h3 id="学会使用控制台">学会使用控制台</h3>
+
+<p>高版本浏览器支持直接通过ID获取元素</p>
+
+
+
+<h3 id="js的输出方式">js的输出方式</h3>
+
+<blockquote>
+  <p>js中提供的浏览器弹框</p>
+  
+  <ul><li><p>1.alert：在浏览器中弹出一个提示框（提供确定按钮，点击确定弹框消失）   </p>
+  
+  <ul>
+  <li>alert({name:’zhufeng’});//=&gt;”[object Object]”</li>
+  <li>alert({12,23});//=&gt;”12,23” </li>
+  <li>使用alert弹框提示信息，提示的内容最后都会被转化为字符串输出（调用了 toString这个方法） </li>
+  <li>alert(1+1);//=&gt;”2” </li></ul></li>
+  <li><p>2.confirm:在alert基础上增加了让用户选择性的操作（提供两个按钮：确定和取消） （不常用）   </p>
+  
+  <ul>
+  <li>var zhufengFlag=confirm(‘are you sure delete this!’);</li>
+  <li>alert(zhufengFleg); </li>
+  <li>当用户点击确定按钮的时候，我们接收到的结果是TURE，点击的是取消按钮 我们接受到的结果是False，此后我们可以根据接受的结果做不同的处理即可 </li></ul></li>
+  <li><p>3.prompt:在confirm基础上增加让用户输入的效果（不常用）   </p>
+  
+  <ul>
+  <li>var flag=prompt(‘are you sure delete this!’); </li>
+  <li>用户点击取消按钮，我们获取到的结果是null，如果点击的是确定按钮，我们 将会获取到用户输入的内容（如果用户没有输入任何内容，获取的结果是空字 符串） </li>
+  <li>真实项目中，尤其是需要样式精美的网站中，我们的提示框一般都是用自己封 装插件和组件来实现的，不用内置的（使用原生js组件） </li></ul></li>
+  <li><p>4.console.log:在控制台输出，优势：不会转换数据类型，输出什么格式的数据都可 以   </p>
+  
+  <ul>
+  <li>console.log({name:’zhufeng’,btn});输出两个值中间用逗号隔开 </li>
+  <li>console.dir( )； 比log输出更加详细一些 只有在查看引用数据类型时能看出区 别 </li>
+  <li>console.table:把JSON数据展示成为一个表格 </li></ul></li>
+  <li>5.debugger；打断点 <br>
+  <ul>
+  <li>眼状按钮 让代码一步一步执行 </li>
+  <li>蓝色按钮 让代码一个断点一个断点执行 <br>
+  打断点的两种方式：   1.直接在代码中写入debugger   2.直接在source中对应文件的对应位置，点击行数。</li></ul></li>
+  </ul>
+</blockquote>
+
+<p>这些输出方式方便程序员调试代码用</p>
+
+
+
+<h3 id="dom元素的获取方式">DOM元素的获取方式</h3>
+
+<p>1.直接通过元素的ID获取 只支持高版本浏览器 <br>
+2.通过document.getElementById(’ ‘) 没有兼容问题</p>
+
+
+
+<h3 id="js中的变量与常量">js中的变量与常量</h3>
+
+<blockquote>
+  <p>变量：值是可以变的 <br>
+  常量：值是不可变的</p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//用var定义变量 var 变量名=值；（ES6中定义变量用let） </span>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> num=<span class="hljs-number">12</span>; 
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> str=<span class="hljs-string">'zhufeng'</span>; 
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(num);<span class="hljs-comment">//=&gt;12 </span>
+</div><div class="hljs-line"><span class="hljs-comment">//变量其实只是一个无意义的名字，它所代表的的意义是其存储的那个值；且只能代表一个值 </span>
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;任何一个具体的数据值都是常量，例如：12就是一个常量 </span>
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;和变量类似，我们设置一个常量（也是一个名字），给其存储一个值，但是这个值不能修改。 用const定义。 const num=12; </span>
+</div></code></pre>
+
+<hr>
+
+
+
+<h3 id="js中的命名规范">js中的命名规范</h3>
+
+<p>1.js中严格区分大小写</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> test=<span class="hljs-string">'zhufeng'</span> 
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> Test=<span class="hljs-string">'peixun'</span> 
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(test); 
+</div></code></pre>
+
+<p>2.遵循国际命名规则  <code>驼峰命名法</code> <br>
+第一个单词首字母小写，其余每一个有意义的单词首字母大写</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> studentInfo; 
+</div><div class="hljs-line"><span class="hljs-comment">//命名使用英文单词，不要使用拼音 </span>
+</div><div class="hljs-line"><span class="hljs-comment">//不是所有单词都能简写，我们需要保证大家看到名字后知道所代表的意思 </span>
+</div><div class="hljs-line">info:information 信息 
+</div><div class="hljs-line">init:initialization 初始化 
+</div><div class="hljs-line">add/insert/create:增加 创建 插入 remove/rm/clear/del/<span class="hljs-keyword">delete</span>:删除 
+</div><div class="hljs-line">update：修改 
+</div><div class="hljs-line">get/query/select:查询获取 
+</div></code></pre>
+
+<p>3.命名的时候可以使用 <code>$ _ 数字 () 字母</code> 但是数字不能作为名字的第一位</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> student_info; 
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> $xxx;<span class="hljs-comment">//=&gt;一般都是应用JQ获取到的值 </span>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> _xxx;<span class="hljs-comment">//=&gt;一般这样的情况代表变量是一个全局或者公用的变量 </span>
+</div></code></pre>
+
+<p>4、JS中很多的词都是有特殊含义的，我们这些词叫做关键字； <br>
+现在没有特殊含义，以后可能会作为关键词的，我们叫做保留字；关键字和保留字都不可以随便命 名。</p></div></body></html>

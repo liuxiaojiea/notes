@@ -1,0 +1,285 @@
+<!DOCTYPE html><html><head><title>CSS属性单词表</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#css属性单词表">CSS属性单词表</a></li>
+<li><a href="#一清除浮动带来的影响的方式">一、清除浮动带来的影响的方式</a></li>
+<li><a href="#二鼠标整体上移2px阴影-brick-item-active">二、鼠标：整体上移2px+阴影 brick-item-active</a></li>
+<li><a href="#三阴影效果box-shadow">三、阴影效果box-shadow</a></li>
+<li><a href="#四定位">四、定位</a><ul>
+<li><a href="#相对定位-positionrelative">相对定位 position：relative</a></li>
+<li><a href="#绝对定位-positionabsolute">绝对定位 position：absolute</a></li>
+<li><a href="#固定定位-positionfixed">固定定位 position：fixed</a></li>
+</ul>
+</li>
+<li><a href="#五鼠标光标变小手">五、鼠标光标变小手</a></li>
+<li><a href="#六背景八大属性梳理">六、背景八大属性梳理</a><ul>
+<li><a href="#1background-color背景颜色">1.background-color背景颜色</a></li>
+<li><a href="#2background-image背景图片">2.background-image背景图片</a></li>
+<li><a href="#3background-repeat背景图片平铺方式">3.background-repeat背景图片平铺方式</a></li>
+<li><a href="#3background-attachment背景依附方式">3.background-attachment背景依附方式</a></li>
+<li><a href="#4background-position指定背景图像在元素中出现的位置">4.background-position指定背景图像在元素中出现的位置</a></li>
+</ul>
+</li>
+<li><a href="#七动画属性">七、动画属性</a></li>
+<li><a href="#css颜色色值">CSS颜色色值</a></li>
+<li><a href="#文本属性">文本属性</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="css属性单词表">CSS属性单词表</h2>
+
+<p>diaplay:inline-block  转化为行内块元素 <br>
+float：left 靠左显示 <br>
+float：right 靠右显示 <br>
+overflow：hidden  溢出隐藏 <br>
+width  宽度 <br>
+height 高度 <br>
+margin 外间距  上右下左（顺时针）auto 居中 <br>
+margin-top/bottom/left/right <br>
+padding  内填充 (同上) <br>
+border-width 边框线宽度 <br>
+border-style 边框线类型  solid实线 dashed虚线 dotted点状线 <br>
+border-color 边框线颜色 <br>
+border：1px solid red;复合属性</p>
+
+<p>background-color 背景颜色 <br>
+background-image 背景图片 <br>
+color 字体颜色 <br>
+font-style 字体类型   normal 粗体变细 <br>
+font-size 字体大小 <br>
+font-weight 字体粗细  bold加粗 <br>
+white-space：nowrap强制不拆行 <br>
+text-align:left  文字居左  right center <br>
+line-height  行高 <br>
+vertical-align 基线对齐，用在行内块元素身上   middle 中线对齐 <br>
+text-decoration：none  文本修饰  去下划线     underline 加下划线 <br>
+list-style:none 去掉li自带的样式 <br>
+text-overflow:ellipsis  隐藏文字以省略号的方式显示</p>
+
+
+
+<h2 id="一清除浮动带来的影响的方式">一、清除浮动带来的影响的方式</h2>
+
+<p>一、给父级设置一个高度（工作中不常用） <br>
+二、给父级设置overflow：hidden;（CSS）的属性</p>
+
+<ul><li><p>把子级元素拉回文档流内</p></li>
+</ul>
+
+<p>三、在所有浮动元素后面加<code>&lt;div style="clear: both;"&gt;&lt;/div&gt;</code></p>
+
+<ul><li><p>clear：both；清除浮动使用前提：</p>
+
+<ul>
+<li><p>1.使用这个属性的必须是块级元素</p></li>
+<li><p>2.使用这个属性的元素必须放在最后一个浮动元素之后</p></li>
+<li><p>3.使用这个属性的元素不能带有float属性</p></li></ul></li>
+</ul>
+
+<p>四、利用伪元素清除浮动带来的影响</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs scss"><div class="hljs-line"><span class="hljs-selector-class">.clear</span>:after{
+</div><div class="hljs-line"><span class="hljs-attribute">display</span>:block;
+</div><div class="hljs-line"><span class="hljs-attribute">content</span>:<span class="hljs-string">""</span>;
+</div><div class="hljs-line"><span class="hljs-attribute">clear</span>:both;}加到CSS中---兼容高版本浏览器
+</div><div class="hljs-line"><span class="hljs-selector-class">.clear</span>{
+</div><div class="hljs-line">*zoom：1；}-----兼容低版本浏览器
+</div></code></pre>
+
+
+
+<h2 id="二鼠标整体上移2px阴影-brick-item-active">二、鼠标：整体上移2px+阴影 brick-item-active</h2>
+
+<p>为了让鼠标移上效果不僵硬，需要加过度动画效果transition:all 1s ease;</p>
+
+
+
+<h2 id="三阴影效果box-shadow">三、阴影效果box-shadow</h2>
+
+<p><code>box-shadow:1px 3px 50px 20px #555</code> <br>
+第一个值：代表X轴偏移值 <br>
+第二个值：代表Y轴偏移值 <br>
+第三个值：阴影模糊半径，值越大越模糊 <br>
+第四个值：阴影的扩展半径 <br>
+第五个值：阴影颜色</p>
+
+
+
+<h2 id="四定位">四、定位</h2>
+
+
+
+<h3 id="相对定位-positionrelative">相对定位 position：relative</h3>
+
+<ul><li><p>不脱离文档流</p></li>
+<li><p>层级大于文档流内的其他元素</p></li>
+<li><p>参照物是本身</p></li>
+<li><p>给绝对定位当作参照物用（常用）</p></li>
+<li><p>同时设置bottom和top值时，top值生效。同时设置left和right值</p></li>
+</ul>
+
+
+
+<h3 id="绝对定位-positionabsolute">绝对定位 position：absolute</h3>
+
+<p>以相对定位元素为参考物移动</p>
+
+
+
+<h3 id="固定定位-positionfixed">固定定位 position：fixed</h3>
+
+<p>可视屏幕为参考对象</p>
+
+
+
+<h2 id="五鼠标光标变小手">五、鼠标光标变小手</h2>
+
+<p>cursor：pointer；</p>
+
+
+
+<h2 id="六背景八大属性梳理">六、背景八大属性梳理</h2>
+
+
+
+<h3 id="1background-color背景颜色">1.background-color背景颜色</h3>
+
+<p>在没有内容只加背景颜色时，无法显示，需要加宽高把内容撑开</p>
+
+
+
+<h3 id="2background-image背景图片">2.background-image背景图片</h3>
+
+<p>设置时图片默认平铺repeat，需要加属性background-repeat：no-repeat（不平铺）</p>
+
+
+
+<h3 id="3background-repeat背景图片平铺方式">3.background-repeat背景图片平铺方式</h3>
+
+<p>background-repeat：repeat-x；x轴平铺 <br>
+background-repeat：repeat-y；y轴平铺</p>
+
+
+
+<h3 id="3background-attachment背景依附方式">3.background-attachment背景依附方式</h3>
+
+<p>定义滚动时背景图像相对于谁固定。取值 <br>
+<strong>fixed：</strong> <br>
+背景图像相对于视口（viewport）固定。 <br>
+<strong>scroll：</strong> <br>
+背景图像相对于元素固定，也就是说当元素内容滚动时背景图像不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动。 <br>
+<strong>local：</strong> <br>
+背景图像相对于元素内容固定，也就是说当元素随元素滚动时背景图像也会跟着滚动，因为背景图像总是要跟着内容。</p>
+
+
+
+<h3 id="4background-position指定背景图像在元素中出现的位置">4.background-position指定背景图像在元素中出现的位置</h3>
+
+<p>…%：用百分比指定背景图像在元素中出现的位置。可以为负值。参考容器尺寸减去背景图尺寸进行换算。 <br>
+….px：用长度值指定背景图像在元素中出现的位置。可以为负值。 <br>
+center：背景图像横向或纵向居中。 <br>
+left：背景图像从元素左边开始出现。 <br>
+right：背景图像从元素右边开始出现。 <br>
+top：背景图像从元素顶部开始出现。 <br>
+bottom：背景图像从元素底部开始出现。</p>
+
+<blockquote>
+  <p>该属性接受1~4个参数值。 <br>
+  如果提供三或四个，每个  或  偏移量之前都必须跟着一个边界关键字（即left | right | top | bottom，不包括center），偏移量相对关键字位置进行偏移。</p>
+  
+  <p>示例：假设要定义背景图像在容器中右下方，并且距离右边和底部各有20px <br>
+  缩写方式： <br>
+  background: url(test1.jpg) no-repeat right 20px bottom 20px;</p>
+  
+  <p>你也可以设置3个参数值： <br>
+  拆分方式： <br>
+  background: url(test1.jpg) no-repeat left bottom 10px; <br>
+  要注意的是：设置3个或4个值，偏移量前必须有边界关键字。也就是说，形如：10px bottom 20px，这样的参数设置是错误的，因为10px前面没有关键字。</p>
+  
+  <p>如果提供两个，第一个用于横坐标，第二个用于纵坐标。 <br>
+  如果只提供一个，该值将用于横坐标；纵坐标将默认为50%（即center）。</p>
+  
+  <p><strong>以上五个属性可以合并成一个复合属性</strong> <br>
+  background：red url(jpg.npc) no-repeat scroll 10px 20px/50px 60px content-box padding-box <br>
+  示例：假设要在同一个元素上定义3个背景图像 <br>
+  缩写方式： <br>
+  background: url(test1.jpg) no-repeat scroll 10px 20px/50px 60px content-box padding-box, <br>
+         url(test2.jpg) no-repeat scroll 10px 20px/70px 90px content-box padding-box, <br>
+         url(test3.jpg) no-repeat scroll 10px 20px/110px 130px content-box padding-box #aaa; <br>
+  注意，因为background-color不能设置多组，且前面的背景会叠在之后的背景之上，所以背景色通常都定义在最后一组上，避免背景色将图像盖住。</p>
+</blockquote>
+
+
+
+<h2 id="七动画属性">七、动画属性</h2>
+
+<p>实现动画第一步：通过@keyframs规定好关键帧的名称 <br>
+开始帧：0%=from <br>
+50% <br>
+…. <br>
+60% <br>
+结束帧：100%=to <br>
+animation: west02 1s steps(8) infinite; <br>
+animation:动画名称 时间  函数的步数 次数（无限次）；</p>
+
+<p>CSS3一般写两套，保证更多浏览器兼容</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs arduino"><div class="hljs-line">-webkit-keyframes west01{
+</div><div class="hljs-line">    <span class="hljs-number">0</span>%{<span class="hljs-built_in">background</span>-<span class="hljs-built_in">position</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span>}
+</div><div class="hljs-line">    <span class="hljs-number">100</span>%{<span class="hljs-built_in">background</span>-<span class="hljs-built_in">position</span>: <span class="hljs-number">-1600</span>px <span class="hljs-number">0</span> }
+</div><div class="hljs-line">}
+</div><div class="hljs-line">keyframes west01{
+</div><div class="hljs-line">    <span class="hljs-number">0</span>%{<span class="hljs-built_in">background</span>-<span class="hljs-built_in">position</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span>}
+</div><div class="hljs-line">    <span class="hljs-number">100</span>%{<span class="hljs-built_in">background</span>-<span class="hljs-built_in">position</span>: <span class="hljs-number">-1600</span>px <span class="hljs-number">0</span> }
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h2 id="css颜色色值">CSS颜色色值</h2>
+
+<p>颜色的三种表示方式</p>
+
+<ul><li><p>十六进制颜色： 十六进制颜色是这样规定的：#RRGGBB，其中的 RR（红色）、GG（绿色）、BB（蓝色）十六进制整数规定了颜色的成分。所有值必须介于 0 与 FF 之间。</p></li>
+<li><p>RGB 颜色： RGB 颜色值是这样规定的：rgb(red, green, blue)。每个参数 (red、green 以及 blue) 定义颜色的强度，可以是介于 0 与 255 之间的整数，或者是百分比值（从 0% 到 100%）</p></li>
+<li><p>颜色的名称： 例如： white，red，black等等；</p></li>
+</ul>
+
+<p>RGBA的作用</p>
+
+<ul><li><p>RGBA 颜色值是 RGB 颜色值的扩展，带有一个 alpha 通道， 它规定了对象的不透明度，alpha 参数是介于 0.0（完全透明）与 1.0（完全不透明）的数字。</p></li>
+</ul>
+
+<p>常用的颜色 <br>
+黑色： #000 、rgb（255,255,255）、black <br>
+白色： #fff、 rgb(0,0,0,)、white</p>
+
+
+
+<h2 id="文本属性">文本属性</h2>
+
+<p>文本颜色： color <br>
+字符间距 : letter-spacing <br>
+设置行高： line-height <br>
+文本对齐方式： text-align <br>
+文本修饰： text-decoration <br>
+文本缩进： text-indent ( em缩进字符） <br>
+文本阴影： text-shadow <br>
+文本转换 ： text-transform <br>
+设置元素的垂直对齐：vertical-align <br>
+设置元素中空白的处理方式： white-space <br>
+设置字间距 ：word-spacing</p></div></body></html>

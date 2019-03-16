@@ -1,0 +1,142 @@
+<!DOCTYPE html><html><head><title>一、选择器</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#一选择器">一、选择器</a><ul>
+<li><a href="#1标签选择器">1.标签选择器</a></li>
+<li><a href="#2通配符选择器">2.通配符选择器*</a></li>
+<li><a href="#3类选择器">3.类选择器</a></li>
+<li><a href="#4id选择器">4.id选择器</a></li>
+<li><a href="#5分组选择器">5.分组选择器</a></li>
+<li><a href="#6后代包含选择器">6.后代（包含）选择器</a></li>
+<li><a href="#7子代选择器">7.子代选择器</a></li>
+<li><a href="#8相邻选择器">8.相邻选择器</a></li>
+<li><a href="#9子级选择器及权重">9.子级选择器及权重</a></li>
+<li><a href="#9伪类选择器">9.伪类选择器</a><ul>
+<li><a href="#锚伪类a的四种状态">锚伪类（a的四种状态）</a><ul>
+<li><a href="#奇偶行变色">奇偶行变色</a></li>
+<li><a href="#第一和最后">第一和最后</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#10伪元素">10.伪元素</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="一选择器">一、选择器</h2>
+
+
+
+<h3 id="1标签选择器">1.标签选择器</h3>
+
+<p>div{}</p>
+
+
+
+<h3 id="2通配符选择器">2.通配符选择器*</h3>
+
+
+
+<h3 id="3类选择器">3.类选择器</h3>
+
+<p>.class</p>
+
+
+
+<h3 id="4id选择器">4.id选择器</h3>
+
+<p>格式：#id</p>
+
+
+
+<h3 id="5分组选择器">5.分组选择器</h3>
+
+<p>h1,.div1,p{ <br>
+        color: green; <br>
+        font-size: 20px;}</p>
+
+
+
+<h3 id="6后代包含选择器">6.后代（包含）选择器</h3>
+
+<p>ul li</p>
+
+
+
+<h3 id="7子代选择器">7.子代选择器</h3>
+
+<p>.box&gt;ul{}</p>
+
+
+
+<h3 id="8相邻选择器">8.相邻选择器</h3>
+
+<p>h2+h3</p>
+
+
+
+<h3 id="9子级选择器及权重">9.子级选择器及权重</h3>
+
+<p>存在包含关系的元素选择，通过父级确定选择子级  <br>
+权重：所有选择器之和  <br>
+语法：父级选择器 &gt; 子级选择器 { 属性名 : 属性值}</p>
+
+<ul><li><p>父级选择器是用来确定取值范围 </p></li>
+<li><p>子级选择器才是我们要添加样式的那个元素 </p></li>
+<li><p>子级选择器必须是紧邻的父子关系</p></li>
+</ul>
+
+
+
+<h3 id="9伪类选择器">9.伪类选择器</h3>
+
+
+
+<h4 id="锚伪类a的四种状态">锚伪类（a的四种状态）</h4>
+
+<ul><li><p>a:link {color: #FF0000}       /* 未访问的链接 */默认状态</p></li>
+<li><p>a:hover {color: #FF00FF}  /* 鼠标移动到链接上 */鼠标经过的状态</p></li>
+<li><p>a:active {color: #0000FF} /* 选定的链接 */鼠标点击时的状态</p></li>
+<li><p>a:visited {color: #00FF00}    /* 已访问的链接 */鼠标点击后的状态</p>
+
+<blockquote>
+  <h5 id="奇偶行变色">奇偶行变色</h5>
+  
+  <p>隔行变色: 奇数行 2n+1 odd  偶数2n even <br>
+  li:nth-child(2n+1){background:#555} <br>
+  li:nth-child(2n){background:#555}</p>
+  
+  <h5 id="第一和最后">第一和最后</h5>
+  
+  <p>li:first-child{background-color: #ff1d39} <br>
+  li:last-child{background-color: #5dffbb}</p>
+</blockquote></li>
+</ul>
+
+<blockquote>
+  <p><strong>匹配同类型中的第n个同级兄弟元素E</strong> <br>
+  E:nth-of-type(n) { sRules }</p>
+</blockquote>
+
+
+
+<h3 id="10伪元素">10.伪元素</h3>
+
+<blockquote>
+  <p>：first-leeter 选择第一个字 <br>
+  ：first-line 选择第一个行 <br>
+  :before 标签内容之前添加一个子元素 <br>
+  :after 标签内容之后添加一个子元素</p>
+</blockquote></div></body></html>

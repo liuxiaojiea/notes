@@ -1,0 +1,202 @@
+<!DOCTYPE html><html><head><title>效果案例</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#效果案例">效果案例</a><ul>
+<li><a href="#数组求和">数组求和</a></li>
+<li><a href="#选项卡效果">选项卡效果</a></li>
+<li><a href="#递归-累加求和">递归 累加求和</a></li>
+<li><a href="#字符串案例">字符串案例</a></li>
+<li><a href="#随机生成验证码">随机生成验证码</a></li>
+<li><a href="#定时器案例">定时器案例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="效果案例">效果案例</h2>
+
+<p></p>
+
+
+
+<h3 id="数组求和">数组求和</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> ary=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> a=<span class="hljs-number">0</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;ary.lenght;i++){
+</div><div class="hljs-line">    a+=ary[i];
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h3 id="选项卡效果">选项卡效果</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> tab=<span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'table'</span>)[<span class="hljs-number">0</span>];
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> olist=tab.getElementsByTagName(<span class="hljs-string">'li'</span>);
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> odiv=tab.getElementsByTagName(<span class="hljs-string">'div'</span>);
+</div><div class="hljs-line"><span class="hljs-comment">//创建函数实现页卡切换功能</span>
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">change</span>(<span class="hljs-params">index</span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;olist.length;i++){
+</div><div class="hljs-line">            olist[i].className=<span class="hljs-string">''</span>;
+</div><div class="hljs-line">            odiv[i].className=<span class="hljs-string">''</span>;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">        olist[index].className=<span class="hljs-string">'select'</span>;
+</div><div class="hljs-line">        odiv[index].className=<span class="hljs-string">'select'</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;使用自定义属性</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;olist.length;i++){
+</div><div class="hljs-line">        olist[i].myIndex=i;
+</div><div class="hljs-line">        olist[i].onclick=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">            change(<span class="hljs-keyword">this</span>.myIndex);<span class="hljs-comment">//this指向绑定时间的DOM元素</span>
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;使用闭包原理实现</span>
+</div><div class="hljs-line"><span class="hljs-comment">// for(var i=0;i&lt;olist.length;i++){</span>
+</div><div class="hljs-line"><span class="hljs-comment">//     olist[i].onclick=(function(i){</span>
+</div><div class="hljs-line"><span class="hljs-comment">//         return function () {</span>
+</div><div class="hljs-line"><span class="hljs-comment">//             change(i);</span>
+</div><div class="hljs-line"><span class="hljs-comment">//         }</span>
+</div><div class="hljs-line"><span class="hljs-comment">//     })(i);</span>
+</div><div class="hljs-line"><span class="hljs-comment">// }</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">// for(var i=0;i&lt;olist.length;i++){</span>
+</div><div class="hljs-line"><span class="hljs-comment">//  ~function(i){</span>
+</div><div class="hljs-line"><span class="hljs-comment">//     olist[i].onclick = function () {</span>
+</div><div class="hljs-line"><span class="hljs-comment">//             change(i);</span>
+</div><div class="hljs-line"><span class="hljs-comment">//         }</span>
+</div><div class="hljs-line"><span class="hljs-comment">//     }(i);</span>
+</div><div class="hljs-line"><span class="hljs-comment">// }</span>
+</div><div class="hljs-line"><span class="hljs-comment">// for(let i=0;i&lt;olist.length;i++){</span>
+</div><div class="hljs-line"><span class="hljs-comment">//     olist[i].onclick=function(){</span>
+</div><div class="hljs-line"><span class="hljs-comment">//         change(i);</span>
+</div><div class="hljs-line"><span class="hljs-comment">//     }</span>
+</div><div class="hljs-line"><span class="hljs-comment">// }</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+
+
+<h3 id="递归-累加求和">递归 累加求和</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">n</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span>(n&lt;<span class="hljs-number">0</span>){
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> n+=fn(n<span class="hljs-number">-1</span>)
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h3 id="字符串案例">字符串案例</h3>
+
+<pre class="prettyprint hljs-dark"><code class="hljs actionscript"><div class="hljs-line"><span class="hljs-keyword">var</span> str=<span class="hljs-string">'https://www.souyidai.com/soeasy/invest/fulllist?productType=0&amp;pageNo=0'</span>
+</div><div class="hljs-line"><span class="hljs-comment">//obj={productType:0,pageNo:0}</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">//方案一：</span>
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getQues</span><span class="hljs-params">(str)</span> </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> questionIndex=str.indexOf(<span class="hljs-string">'?'</span>);
+</div><div class="hljs-line">    str = str.substring(questionIndex+<span class="hljs-number">1</span>);
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> arr=str.split(<span class="hljs-string">'&amp;'</span>)
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> obj={}
+</div><div class="hljs-line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;arr.length;i++){
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> arr2=arr[i].split(<span class="hljs-string">'='</span>);
+</div><div class="hljs-line">        obj[arr2[<span class="hljs-number">0</span>]]=arr2[<span class="hljs-number">1</span>]*<span class="hljs-number">1</span>
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> obj;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> n=getQues(str)
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+
+
+<h3 id="随机生成验证码">随机生成验证码</h3>
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment">//得到n位不同的数</span>
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAry</span>(<span class="hljs-params">n</span>) </span>{
+</div><div class="hljs-line">    n = n||<span class="hljs-number">4</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> ary4=[];
+</div><div class="hljs-line">    <span class="hljs-keyword">while</span>(ary4.length&lt;n){
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> m=<span class="hljs-built_in">Math</span>.round(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">61</span>);
+</div><div class="hljs-line">        <span class="hljs-keyword">if</span>(ary4.indexOf(m)==<span class="hljs-number">-1</span>){
+</div><div class="hljs-line">            ary4.push(m);
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> ary4;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">//验证码</span>
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getStr</span>(<span class="hljs-params">n</span>) </span>{
+</div><div class="hljs-line">    n=n||<span class="hljs-number">5</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> str=<span class="hljs-string">'qwertyuiopasdfghjklzxcvbnm1234567890ASDFGHJKLQWERTYUIOPZXCVBNM'</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> arr=getAry(n);
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> s=<span class="hljs-string">''</span>;
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(arr);
+</div><div class="hljs-line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;arr.length;i++){
+</div><div class="hljs-line">        s+=str[arr[i]];
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> s;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> btn=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'btn'</span>);
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> box=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'box'</span>);
+</div><div class="hljs-line">btn.onclick=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> code = getStr();
+</div><div class="hljs-line">    box.innerHTML = code;
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h3 id="定时器案例">定时器案例</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTime</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-comment">//1、获取目标时间</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> target = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'2018-11-28 18:30:00'</span>).getTime();
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">    <span class="hljs-comment">//2、获取当前时间</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime();
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">    <span class="hljs-comment">//3、获取时间差</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> time = target-now;
+</div><div class="hljs-line">   <span class="hljs-keyword">if</span>(time&lt;=<span class="hljs-number">0</span>){
+</div><div class="hljs-line">       clearInterval(timer2);
+</div><div class="hljs-line">       <span class="hljs-keyword">return</span> ;
+</div><div class="hljs-line">   }
+</div><div class="hljs-line">    <span class="hljs-comment">//4、把时间差转成时分秒</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> h=<span class="hljs-built_in">parseInt</span>(time/(<span class="hljs-number">3600</span>*<span class="hljs-number">1000</span>));
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> m=<span class="hljs-built_in">parseInt</span>((time-(h*<span class="hljs-number">3600</span>*<span class="hljs-number">1000</span>))/(<span class="hljs-number">60</span>*<span class="hljs-number">1000</span>));
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> s=<span class="hljs-built_in">parseInt</span>((time-(h*<span class="hljs-number">3600</span>*<span class="hljs-number">1000</span>)-m*(<span class="hljs-number">60</span>*<span class="hljs-number">1000</span>))/<span class="hljs-number">1000</span>);
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> str = <span class="hljs-string">`距离下课还有<span class="hljs-subst">${h&lt;<span class="hljs-number">10</span>?<span class="hljs-string">'0'</span>+h:h}</span>小时<span class="hljs-subst">${m&lt;<span class="hljs-number">10</span>?<span class="hljs-string">'0'</span>+m:m}</span>分钟<span class="hljs-subst">${s&lt;<span class="hljs-number">10</span>?<span class="hljs-string">'0'</span>+s:s}</span>秒`</span>
+</div><div class="hljs-line">    timeBox.innerText=str;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> timer2 = setInterval(getTime,<span class="hljs-number">1000</span>);
+</div><div class="hljs-line"><wbr>
+</div></code></pre></div></body></html>

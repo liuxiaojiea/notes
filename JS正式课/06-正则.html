@@ -1,0 +1,274 @@
+<!DOCTYPE html><html><head><title>正则</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#正则">正则</a><ul>
+<li><a href="#基础概念">基础概念</a></li>
+<li><a href="#常用的修饰符与元字符">常用的修饰符与元字符</a></li>
+<li><a href="#中括号的细节">中括号的细节</a></li>
+<li><a href="#小分组的作用">小分组的作用</a></li>
+<li><a href="#常用的正则表达式">常用的正则表达式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="正则">正则</h2>
+
+<p></p>
+
+
+
+<h3 id="基础概念">基础概念</h3>
+
+<p><strong>正则：用来处理字符串的规则，每一个正则都是由“元字符”、“修饰符”组成的</strong> <br>
+学习正则就是在学习如何编写规则</p>
+
+<ul><li><p>1、正则只能用来处理字符串</p></li>
+<li><p>2、处理一般包括两方面</p></li>
+<li><ul>
+<li><p>验证当前字符串是否符合某个规则“正则匹配”</p></li></ul></li>
+<li><ul>
+<li><p>把一个字符串中符合规则的字符串获取到“正则捕获”</p></li></ul></li>
+</ul>
+
+<blockquote>
+  <p><strong>1、创建正则的两种方式</strong></p>
+  
+  <ul><li><p>let reg1 = /^\d+$/g;  =&gt;字面量方式</p></li>
+  <li><p>let reg1 = new RegExp( “/^\d+$/” , “g”);  =&gt;构造函数方式</p></li>
+  </ul>
+  
+  <p><strong>2.正则两个斜杠之间包起来的都是“元字符”，斜杠后面出现的都是“修饰符”</strong> <br>
+   let reg = /^\d+$/g;</p>
+</blockquote>
+
+
+
+<h3 id="常用的修饰符与元字符">常用的修饰符与元字符</h3>
+
+<ul><li><p>常用的修饰符</p></li>
+<li><p>i: ignoreCase 忽略大小写匹配</p></li>
+<li><p>m: multiline 多行匹配</p></li>
+<li><p>g: global 全局匹配</p></li>
+</ul>
+
+<blockquote>
+  <p><strong>常用的元字符</strong> <br>
+  【特殊元字符】</p>
+  
+  <ul><li><p>\d  0~9之间的一个数字</p></li>
+  <li><p>\D  非0~9之间的任意字符</p></li>
+  <li><p>\w  “数字、字母、下划线”中的任意一个  =&gt; /[0-9a-zA-Z_]/等价于\w</p></li>
+  <li><p>\s  匹配任意一个空白字符（包括\t制表符[TAB键四个空格]）</p></li>
+  <li><p>\b  匹配边界符</p></li>
+  <li><p>\n  匹配一个换行符</p></li>
+  <li><p>\    转义字符(把一个普通字符转义为特殊的字符,例如:\d，把有特殊含义的转换为普通意思，例如：. 此处的点就不是任意字符，而是一个小数点)</p></li>
+  <li><p>.    不仅仅是小数点，代表除了\n以外的任意字符</p></li>
+  <li><p>^  以某个元字符开头</p></li>
+  <li><p>$  以某个元字符结尾</p></li>
+  <li><p>x|y  x或者y中的任意一个（a|p…）</p></li>
+  <li><p>[xyz] x或者y或者z中的任意一个</p></li>
+  <li><p>[^xyz] 除了x或者y或者z以外的任意字符</p></li>
+  <li><p>[a-z] 获取a-z中的任意一个字符([0-9] 等价于\d …)</p></li>
+  <li><p>[^a-z] 除了a-z的任意字符</p></li>
+  <li><p>( ) 正则分组</p></li>
+  <li><p>( ? : ) 当前分组只匹配不捕获</p></li>
+  <li><p>(?=) 正向预查</p></li>
+  <li><p>(?!) 负向预查</p></li>
+  </ul>
+  
+  <p>【量词元字符：让其左边的元字符出现多少次】</p>
+  
+  <ul><li><p><code>*</code> 出现零到多次 </p></li>
+  <li><p>？ 出现零到一次</p></li>
+  <li><p><code>+</code> 出现一到多次</p></li>
+  <li><p>{n} 出现n次</p></li>
+  <li><p>{n,} 出现n到多次</p></li>
+  <li><p>{n,m} 出现n到m次</p></li>
+  </ul>
+  
+  <p>【普通元字符】</p>
+  
+  <ul><li><p>只要在正则中出现元字符（在基于字面量方式创建），除了特殊和有量词意义的以外，其余的都是普通元字符</p></li>
+  </ul>
+</blockquote>
+
+
+
+<h3 id="中括号的细节">中括号的细节</h3>
+
+<p>中括号的一些细节</p>
+
+<ul><li><p>[xyz]</p></li>
+<li><p>[^xyz]</p></li>
+<li><p>[a-z]</p></li>
+<li><p>[^a-z]</p></li>
+</ul>
+
+<p>1.中括号中出现的元字符一般都是代表本身含义的 <br>
+2.中括号中出现的两位数，不是两位数，而是两个数字中的任意一个</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^.+$/</span>;<span class="hljs-comment">//=&gt;一个正则设置了^和$，那么代表的含义其实就是只能是xxx</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'n'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'1'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'nn'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'\n'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^[.]+$/</span>;
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'n'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'1'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'nn'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'\n'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'...'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^[\d]+$/</span>; <span class="hljs-comment">//=&gt;\d在这里依然是0~9中的一个数字</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'0'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'d'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^[18]$/</span>;<span class="hljs-comment">//=&gt;不加^和$代表字符串中只要包含xxx即可</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'18'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'1'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'8'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^[12-65]$/</span>;
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'13'</span>));<span class="hljs-comment">//=&gt;false 不是12~65</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'7'</span>));<span class="hljs-comment">//=&gt;false  这个正则的意思是 1或者2~6或者5</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'3.5'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">//年龄：18~65之间</span>
+</div><div class="hljs-line"><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment"> * 18~19  1[89]</span>
+</div><div class="hljs-line"><span class="hljs-comment"> * 20~59  [2-5]\d</span>
+</div><div class="hljs-line"><span class="hljs-comment"> * 60~65  6[0-5]</span>
+</div><div class="hljs-line"><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"><span class="hljs-comment">// let reg = /^((1[89])|([2-5]\d)|(6[0-5]))$/;</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;需求：编写一个规则，匹配 "[object AAA]"</span>
+</div><div class="hljs-line"> <span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^\[object .+\]$/</span>;
+</div><div class="hljs-line"> <span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'[object AAA]'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+
+
+<h3 id="小分组的作用">小分组的作用</h3>
+
+<ul><li><p>1、改变默认的优先级</p></li>
+<li><p>2、分组捕获</p></li>
+<li><p>3、分组引用</p></li>
+</ul>
+
+<p><strong>正则捕获使用的是正则中的EXEC方法</strong></p>
+
+<ul><li><p>1.如果可以匹配获取的结果是一个数组，如果不能匹配获取的结果是NULL</p></li>
+<li><p>2.如果我们只在匹配的时候，想要获取大正则中部分信息，我们可以把这部分使用小括号包起来，形成一个分组，这样在捕获的时候，不仅可以把大正匹配的信息捕获到，而且还单独的把小分组匹配的部分信息也捕获到了(分组捕获)</p></li>
+<li><p>3.有时候写小分组不是为了捕获信息，只是为了改变优先级或者进行分组引用，此时我们可以在分组的前面加上“?:”，代表只去匹配，但是不把这个分组内容捕获</p></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^18|19$/</span>;
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'18'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'19'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'1819'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'189'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'181'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'819'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'119'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">reg = <span class="hljs-regexp">/^(18|19)$/</span>;
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'18'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'19'</span>));<span class="hljs-comment">//=&gt;true</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'1819'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'189'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'181'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'819'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'119'</span>));<span class="hljs-comment">//=&gt;false</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^([a-z])([a-z])\2\1$/</span>;<span class="hljs-comment">//=&gt;正则中出现的\1代表和第一个分组出现一模一样的内容...</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'oppo'</span>));
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">'poop'</span>));
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;编写一个正则匹配身份证号码</span>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^\d{17}(\d|X)$/</span>;<span class="hljs-comment">//=&gt;简单：只能匹配是否符合格式，不能提取出身份证中的一些信息</span>
+</div><div class="hljs-line"><span class="hljs-string">'130828199012040617'</span>
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;130828 地域</span>
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;19901204 出生年月</span>
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;0617 倒数第二位：奇数=男  偶数=女</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^(\d{6})(\d{4})(\d{2})(\d{2})\d{2}(\d)(?:\d|X)$/</span>;
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(reg.exec(<span class="hljs-string">'130828199012040617'</span>));<span class="hljs-comment">//=&gt;EXEC实现的是正则捕获，获取的结果是一个数组，如果不匹配获取的结果是null，捕获的时候不仅把大正则匹配的信息捕获到，而且每一个小分组中的内容也捕获到了(分组捕获) : ["130828199012040617", "130828", "1990", "12", "04", "1", index: 0, input: "130828199012040617"]</span>
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+
+
+<h3 id="常用的正则表达式">常用的正则表达式</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment"> * 有效数字</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   1.正数 负数 零</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   2.小数 整数</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   -12.4</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   -12</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   12</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   12.4</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   0</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   +2</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   -2</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   +0</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   -0</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   0.5</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   =====下面两种不行</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   02.4</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   2.</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   .5</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *  分析规则：</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *    1.可以出现+/-号：可以没有，也可以有一个</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *    2.整数 0 12 9 : 一位或者多位数字，一位0~9，多位数字不能以0开头</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *    3.小数部分：可能有可能没有，有小数点后面至少要跟一位数字</span>
+</div><div class="hljs-line"><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"> <span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^[+-]?(\d|([1-9]\d+))(\.\d+)?$/</span>;
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment"> * 电话(手机)号码</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   1. 11位数字</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   2. 以1开头</span>
+</div><div class="hljs-line"><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"><span class="hljs-comment">// let reg = /^1\d{10}$/;</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment"> * 中文姓名</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   1. 中文汉字  [\u4E00-\u9FA5]</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   2. 尼古拉斯·赵四</span>
+</div><div class="hljs-line"><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^[\u4E00-\u9FA5]{2,}(·[\u4E00-\u9FA5]{2,})?$/</span>;
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment"> * 邮箱</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *   xxxx@xxx.xx.xx</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *  第一部分：数字、字母、下划线、-、.，但是-和.不能作为开头，不能连续出现-或者.</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *  第二部分：xxx.xx.xx  xxx.xx  xxx.xx.xx.xx  xxx-xxx-xx.xx.xx</span>
+</div><div class="hljs-line"><span class="hljs-comment"> *</span>
+</div><div class="hljs-line"><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"> <span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/^\w+([-.]\w+)*@[A-Za-z0-9]+([-.][A-Za-z0-9]+)*(\.[A-Za-z0-9]+)$/</span>;
+</div></code></pre></div></body></html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html><html><head><title>html常用标签 table input标签</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#html常用标签-table-input标签">html常用标签 table input标签</a></li>
+<li><a href="#一html基础">一、html基础</a><ul>
+<li><a href="#1网页组成部分wwwmicom-小米官网">1.网页组成部分www.mi.com 小米官网</a></li>
+<li><a href="#2html常用的标签">2.html常用的标签</a></li>
+<li><a href="#3关于html元素的分类">3.关于html元素的分类</a></li>
+<li><a href="#权重权重大的会覆盖权重小的元素">权重：权重大的会覆盖权重小的元素</a></li>
+<li><a href="#居中效果的实现">居中效果的实现</a></li>
+</ul>
+</li>
+<li><a href="#二网页的基本结构">二、网页的基本结构</a></li>
+<li><a href="#三table标签">三、table标签</a></li>
+<li><a href="#四form标签">四、form标签</a><ul>
+<li><a href="#1input表单元素常用的type类型23种">1.input表单元素常用的type类型（23种）</a></li>
+<li><a href="#2属性">2.属性</a></li>
+</ul>
+</li>
+<li><a href="#五video标签属性">五、video标签属性</a></li>
+<li><a href="#六iframe标签">六、iframe标签</a><ul>
+<li><ul>
+<li><a href="#iframe语法">iframe语法</a></li>
+<li><a href="#iframe设置高度与宽度">iframe设置高度与宽度</a></li>
+<li><a href="#iframe移除边框">iframe移除边框</a></li>
+<li><a href="#使用iframe来显示目标链接页面">使用iframe来显示目标链接页面</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#七字符符号">七、字符符号</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="html常用标签-table-input标签">html常用标签 table input标签</h2>
+
+
+
+<h2 id="一html基础">一、html基础</h2>
+
+
+
+<h3 id="1网页组成部分wwwmicom-小米官网">1.网页组成部分<code>www.mi.com 小米官网</code></h3>
+
+<ul><li><p>html：标记语言，网页中的一些元素（文字图片音频视频元素），网页基本骨架</p></li>
+<li><p>css：层叠样式表，用来美化网页基本骨架</p></li>
+<li><p>java script：脚本语言，做网页中的交互效果</p></li>
+</ul>
+
+
+
+<h3 id="2html常用的标签">2.html常用的标签</h3>
+
+<blockquote>
+  <p><strong>html的语法</strong> <br>
+  由左右尖括号包起来，中间放小写的标签名称；由开始标签和结束标签组成，结束标签比开始标签多一个反斜杠 <br>
+  有的标签没有结束标签，开始的地方自动闭合，这样的标签叫做单标签或自闭合标签 <br>
+  自动生成标签快捷键：tab+标签名</p>
+  
+  <p><strong>&lt;html标签汇总&gt;</strong> <br>
+  <strong>网页布局必用标签</strong></p>
+  
+  <ul><li><p>a超链接标签</p>
+  
+  <ul>
+  <li><p>href=”超链接地址”</p></li>
+  <li><p>target=”_blank”新开网页</p></li></ul></li>
+  <li><p>img插入图片标签</p>
+  
+  <ul>
+  <li><p>src=”图片地址”</p></li>
+  <li><p>alt=”文字描述” 图片加载失败时会出现</p></li>
+  <li><p>title=”鼠标移上时出现的文字描述”</p></li></ul></li>
+  <li><p>h1-h6标题系列标签</p></li>
+  <li><p>p段落标签</p></li>
+  </ul>
+  
+  <p><strong>文本格式化类标签</strong>都是行内元素 <br>
+  加粗 strong b <br>
+  斜体 em i <br>
+  变小 small <br>
+  下标 （bottom）sub <br>
+  上标（top）sup <br>
+  删除 del</p>
+  
+  <p><strong>划分块的标签</strong> <br>
+  div 块级元素 <br>
+  span 行内元素</p>
+  
+  <p><strong>三大列表</strong> <br>
+  ul li 无序列表 <br>
+  ol li有序列表 <br>
+  dl dt dd 定义列表 <br>
+  <strong>单标签</strong> <br>
+  br 折行符 <br>
+  hr 分割线 <br>
+  <strong>嵌入网站</strong> <br>
+  iframe</p>
+</blockquote>
+
+
+
+<h3 id="3关于html元素的分类">3.关于html元素的分类</h3>
+
+<blockquote>
+  <ul><li><p><code>面试题1：行内元素有哪些，块级元素有哪些，行内块级元素有哪些？</code></p></li>
+  <li><p><code>面试题2：行内元素和块级元素分别有什么，区别是什么？</code></p></li>
+  <li><p><code>面试题3：img是行内元素还是块级元素？为什么？</code></p></li>
+  </ul>
+  
+  <p>1.块级元素  div p  h1-h6 hr 三大列表 table</p>
+  
+  <ul><li><p>独占一行</p></li>
+  <li><p>天生自带display：block</p></li>
+  <li><p>可以设置盒子模型的所有属性（高度、宽度、内填充、外间距）</p></li>
+  <li><p>块级元素没有设置宽高的情况下，会继承父元素的宽度</p></li>
+  </ul>
+  
+  <p>2.行内元素  br select textarea input </p>
+  
+  <ul><li><p>不独占一行</p></li>
+  <li><p>天生自带display：inline</p></li>
+  <li><p>行内元素设置盒子模型的宽高不起作用，需要转化为行内快元素</p></li>
+  <li><p>没有设置宽高的情况下，宽高就是本身内容的大小</p></li>
+  </ul>
+  
+  <p>3.行内块元素 img input select textarea</p>
+  
+  <ul><li><p>既有块级元素又有行内元素特点，不独占一行</p></li>
+  <li><p>行内元素天生自带属性 diaplay:inline</p></li>
+  </ul>
+</blockquote>
+
+
+
+<h3 id="权重权重大的会覆盖权重小的元素">权重：权重大的会覆盖权重小的元素</h3>
+
+<blockquote>
+  <p>标签选择器: 1 <br>
+  class选择器: 10 <br>
+  id选择器: 100 <br>
+  通配符选择器: 0-1 <br>
+  后代选择器: 每个单独的元素选择器的权重之和</p>
+</blockquote>
+
+
+
+<h3 id="居中效果的实现">居中效果的实现</h3>
+
+<blockquote>
+  <p>文字水平居中 text-align:center <br>
+  文字垂直居中 height = line-height <br>
+  色块div水平 width、 margin: 上下 auto</p>
+</blockquote>
+
+
+
+<h2 id="二网页的基本结构">二、网页的基本结构</h2>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><div class="hljs-line">文档申明：
+</div><div class="hljs-line">html4：
+</div><div class="hljs-line"><span class="hljs-meta">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"</span>
+</div><div class="hljs-line"><span class="hljs-meta">        "http://www.w3.org/TR/html4/loose.dtd"&gt;</span>
+</div><div class="hljs-line">html5：
+</div><div class="hljs-line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+</div><div class="hljs-line">网页的根元素 lang="zh-CN"中文
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+</div><div class="hljs-line">网页头部
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+</div><div class="hljs-line">    元标签：网页的编码格式
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+</div><div class="hljs-line">    网页的标题 一般显示在页卡的部分
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+</div><div class="hljs-line">    网页的描述
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"description"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"小米商城直营小米公司旗下所有产品，囊括小米手机系列小米MIX 3、小米8、小米Note 3，红米手机系列红米5 Plus、红米6 Pro，智能硬件，配件及小米生活周边，同时提供小米客户服务及售后支持。"</span> /&gt;</span>
+</div><div class="hljs-line">    网页的关键词：利于SEO搜索优化
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"keywords"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"小米,小米8,小米Note3,红米5Plus,小米MIX3,小米商城"</span> /&gt;</span>
+</div><div class="hljs-line">    网页标题前面的小图标
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"shortcut icon"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//s01.mifile.cn/favicon.ico"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"image/x-icon"</span> /&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"icon"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//s01.mifile.cn/favicon.ico"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"image/x-icon"</span> /&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+
+
+
+<h2 id="三table标签">三、table标签</h2>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">"0"</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-comment">&lt;!--表格的标题--&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">caption</span>&gt;</span>第二周作业<span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-comment">&lt;!--tr表格的行--&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"6"</span>&gt;</span>招聘需求申请表<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-comment">&lt;!--th表格的标题 有加粗的效果--&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>部门<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>    <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>招聘岗位<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>招聘人数<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>先从事该岗位的总人数<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>现部门的总人数<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>需求原因<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"5"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>部门负责人签名<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>日期<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>人事部门审批<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>日期<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>总经理审批<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>日期<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</div></code></pre>
+
+<p>caption 表格的标题描述内容 <br>
+border=”1” 边框（放到table后面） <br>
+cellspacing=”0”行间距（放到table后面） <br>
+cellpadding=“10”单元格间距（放到table后面） <br>
+colspan=”6”合并行（放到td后面） <br>
+rowspan=”5”合并列（放到td后面） <br>
+bgcolor=”“表格背景颜色 <br>
+align=”center”表格内容居中 <br>
+<strong>消除table默认间距的css语言：</strong>border-collapse: collapse;</p>
+
+
+
+<h2 id="四form标签">四、form标签</h2>
+
+
+
+<h3 id="1input表单元素常用的type类型23种">1.input表单元素常用的type类型（23种）</h3>
+
+<p>form 用来包括所有的表单元素，action用来提交数据 <br>
+type=”text” 文本类型：用户名，手机号 <br>
+type=”password” 密码类型 <br>
+type=”submit”  提交 <br>
+type=”reset” 重置 <br>
+type=”button” 点击按钮 <br>
+type=”checkbox” 多选按钮 <br>
+type=”radio” 单选 name=”sex”相同的name属性只能选择一个 <br>
+type=”file” 选择文件类型</p>
+
+<p><strong>其他标签</strong> <br>
+select&gt;option 下拉列表</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xquery"><div class="hljs-line">&lt;select&gt;
+</div><div class="hljs-line">    &lt;<span class="hljs-keyword">option</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">""</span>&gt;<span class="hljs-number">2018</span>&lt;/<span class="hljs-keyword">option</span>&gt;
+</div><div class="hljs-line">    &lt;<span class="hljs-keyword">option</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">""</span>&gt;<span class="hljs-number">2019</span>&lt;/<span class="hljs-keyword">option</span>&gt;
+</div><div class="hljs-line">    &lt;<span class="hljs-keyword">option</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">""</span>&gt;<span class="hljs-number">2020</span>&lt;/<span class="hljs-keyword">option</span>&gt;
+</div><div class="hljs-line">&lt;/select&gt;
+</div></code></pre>
+
+<p>textarea 多行文本输入 <br>
+<code>&lt;textarea name="" id="" cols="15" rows="5"&gt;&lt;/textarea&gt;</code></p>
+
+
+
+<h3 id="2属性">2.属性</h3>
+
+<ul><li><p>label中的for指向input中的id名，点击label中的文字也可选中或取消选项 <br>
+<code>&lt;input type="checkbox" id="agree"&gt;&lt;label for="agree"&gt;敲代码&lt;/label&gt;</code></p></li>
+<li><p>placeholder=”请输入用户名” 占位符，输入内容后占位符内容消失</p></li>
+<li><p>autofocus 获取光标</p></li>
+<li><p>value=”百度一下” 规定输入字段的初始值</p></li>
+<li><p>readonly 属性规定输入字段为只读（不能修改）</p></li>
+<li><p>size=”” 属性规定输入字段的尺寸（以字符计）</p></li>
+<li><p>maxlength=”” 属性规定输入字段允许的最大长度</p></li>
+<li><p>required 属性是布尔属性。  <br>
+如果设置，则规定在提交表单之前必须填写输入字段。  <br>
+required 属性适用于以下输入类型：text、search、url、tel、email、password、date pickers、number、checkbox、radio、and file`</p></li>
+</ul>
+
+
+
+<h2 id="五video标签属性">五、video标签属性</h2>
+
+<p>autoplay 自动播放 <br>
+loop 循环播放 <br>
+controls 播放器控件 <br>
+preload=”none” 是否提前加载资源文件 <br>
+style=”video/mp4”类型</p>
+
+
+
+<h2 id="六iframe标签">六、iframe标签</h2>
+
+
+
+<h4 id="iframe语法">iframe语法</h4>
+
+<p>该URL指向不同的网页 <br>
+<code>&lt;iframe src="URL"&gt;&lt;/iframe&gt;</code></p>
+
+
+
+<h4 id="iframe设置高度与宽度">iframe设置高度与宽度</h4>
+
+<p>height 和 width 属性用来定义iframe标签的高度与宽度 <br>
+属性默认以像素为单位, 但是你可以指定其按比例显示 (如：”80%”) <br>
+<code>&lt;iframe src="demo_iframe.htm" width="200" height="200"&gt;&lt;/iframe&gt;</code></p>
+
+
+
+<h4 id="iframe移除边框">iframe移除边框</h4>
+
+<p>frameborder 属性用于定义iframe表示是否显示边框。 <br>
+设置属性值为 “0” 移除iframe的边框 <br>
+<code>&lt;iframe src="demo_iframe.htm" frameborder="0"&gt;&lt;/iframe&gt;</code></p>
+
+
+
+<h4 id="使用iframe来显示目标链接页面">使用iframe来显示目标链接页面</h4>
+
+<p>iframe可以显示一个目标链接的页面 <br>
+目标链接的属性必须使用iframe的属性，如下实例:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line">&lt;iframe src=<span class="hljs-string">"demo_iframe.htm"</span> name=<span class="hljs-string">"iframe_a"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span></span>
+</div><div class="hljs-line">&lt;p&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://www.zhufengpeixun.cn"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"iframe_a"</span>&gt;</span>zhufengpeixun<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+</div></code></pre>
+
+
+
+<h2 id="七字符符号">七、字符符号</h2>
+
+<p>空格 <code>&amp;nbsp</code> <br>
+大于号<code>&amp;gt(great)</code> <br>
+小于号<code>&amp;lt(little)</code> <br>
+版权符号<code>&amp;copy</code></p></div></body></html>
